@@ -42,4 +42,4 @@ The script creates a 1x3 figure with the following plots:
 
 ## AI tools used and disclosure
 
-This section is intentionally left as a placeholder. Add your disclosure text here describing any AI tools you used, what they were used for, and how you verified or edited the generated content.
+I used GitHub Copilot in VS Code to generate and assist with Python code for this lab. I wrote intent comments first, used Copilot to generate plotting and data generation code, and then reviewed and edited the results to make sure I understood and could explain every line. I also used AI to help debug minor issues in Git and file setup.
