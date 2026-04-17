@@ -101,3 +101,53 @@ def plot_scatter(sensor_a, sensor_b, timestamps, ax):
 
     return None
 
+
+def plot_histogram(sensor_a, sensor_b, ax):
+    """Plot overlaid histograms for two sensor temperature distributions.
+
+    Parameters
+    ----------
+    sensor_a : numpy.ndarray
+        Array of shape (200,) containing Sensor A temperature readings in
+        degrees Celsius.
+    sensor_b : numpy.ndarray
+        Array of shape (200,) containing Sensor B temperature readings in
+        degrees Celsius.
+    ax : matplotlib.axes.Axes
+        Existing Matplotlib Axes to draw the histogram visualization on.
+        The axes are modified in place.
+
+    Returns
+    -------
+    None
+        This function updates ``ax`` directly and does not return any
+        Matplotlib objects.
+    """
+    ax.hist(sensor_a, bins=30, alpha=0.5, color="tab:blue", label="Sensor A")
+    ax.hist(sensor_b, bins=30, alpha=0.5, color="tab:orange", label="Sensor B")
+
+    mean_a = sensor_a.mean()
+    mean_b = sensor_b.mean()
+    ax.axvline(
+        mean_a,
+        color="tab:blue",
+        linestyle="--",
+        linewidth=2,
+        label=f"Sensor A mean: {mean_a:.2f} C",
+    )
+    ax.axvline(
+        mean_b,
+        color="tab:orange",
+        linestyle="--",
+        linewidth=2,
+        label=f"Sensor B mean: {mean_b:.2f} C",
+    )
+
+    ax.set_xlabel("Temperature (\N{DEGREE SIGN}C)")
+    ax.set_ylabel("Count")
+    ax.set_title("Temperature Distribution: Sensor A vs Sensor B")
+    ax.legend()
+    ax.grid(axis="y", alpha=0.25)
+
+    return None
+
